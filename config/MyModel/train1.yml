@@ -1,0 +1,72 @@
+#### general settings
+name: MyModel
+use_tb_logger: true
+num_spks: 2
+#### datasets
+datasets:
+  train:
+    dataroot_mix: /home/likai/data1/create_scp/tr_mix.scp
+    dataroot_targets: [/home/likai/data1/create_scp/tr_s1.scp,/home/likai/data1/create_scp/tr_s2.scp]
+
+  val:
+    dataroot_mix: /home/likai/data1/create_scp/cv_mix.scp
+    dataroot_targets: [/home/likai/data1/create_scp/cv_s1.scp,/home/likai/data1/create_scp/cv_s2.scp]
+  
+  dataloader_setting:
+    shuffle: true
+    num_workers: 10  # per GPU
+    batch_size: 20
+  
+  audio_setting:
+    sample_rate: 8000
+    chunk_size: 32000
+    least_size: 16000
+    
+
+#### network structures
+#Conv_Tasnet:
+#  N: 512
+#  L: 16
+#  B: 128
+#  H: 512
+#  P: 3
+#  X: 8
+#  R: 3
+#  norm: gln
+#  num_spks: 2
+#  activate: relu
+#  causal: false
+#### training settings: learning rate scheme, loss
+train:
+  epoch: 100
+  early_stop: 15
+  path: E://Dual-Path-RNN-Pytorch-master//checkpoint_mse
+  gpuid: [0]
+
+#### Optimizer settings
+optim:
+  name: Adam   ### Adam, RMSprop, SGD
+  lr: !!float 1e-6
+#  momentum: 0.9
+#  weight_decay: !!float 5e-4
+#  clip_norm: 200
+
+#### scheduler settings
+scheduler:
+  min_lr: !!float 1e-15
+  patience: 3
+  factor: 0.1
+
+#### Resume training settings
+resume:
+  state: true
+  path: E://Dual-Path-RNN-Pytorch-master//checkpoint_mse
+
+
+#### logger
+logger:
+  name: DPCL
+  path: E://Dual-Path-RNN-Pytorch-master//checkpoint_mse
+  screen: true
+  tofile: false
+  print_freq: 100
