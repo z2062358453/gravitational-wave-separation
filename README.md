@@ -1,9 +1,8 @@
 # gravitational-wave-separation
 Combine deep learning and Bayesian analysis to separate overlapping gravitational wave signals
 
-# test dataset and the trained model weights 
-https://pan.baidu.com/s/1QbhcdkSMwm-vBH7Y7274jQ 
-access code：f8qa 
+# the trained model weights 
+(https://drive.google.com/drive/folders/1FB5h6_3KA_dOhU3tY1EaWZ0Y83uR2u4H?usp=sharing)
 
 # Reference
 1.Luo Y, Chen Z, Yoshioka T. Dual-path RNN: efficient long sequence modeling for time-domain single-channel speech separation[J]. arXiv preprint arXiv:1910.06379, 2019.
